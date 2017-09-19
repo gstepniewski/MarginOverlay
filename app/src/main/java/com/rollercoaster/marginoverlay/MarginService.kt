@@ -43,6 +43,9 @@ class MarginService: Service() {
             MOApp.showAt10.subscribe {
                 overlay.start_margin_10.visibleIf(it)
                 overlay.end_margin_10.visibleIf(it)
+            },
+            MOApp.showHorizontal.subscribe {
+                overlay.horizontal_margin.visibleIf(it)
             }
         )
     }

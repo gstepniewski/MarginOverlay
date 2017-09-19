@@ -8,5 +8,6 @@ class MOApp: Application() {
         val serviceRunning = BehaviorSubject.createDefault(false)
         var showAt16 = BehaviorSubject.createDefault(true)
         var showAt10 = BehaviorSubject.createDefault(false)
+        var showHorizontal = BehaviorSubject.createDefault(false)
     }
 }

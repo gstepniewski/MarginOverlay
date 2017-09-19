@@ -26,6 +26,7 @@ class MainActivity : AppCompatActivity() {
 
         RxCompoundButton.checkedChanges(checkbox_16).skipInitialValue().subscribe { MOApp.showAt16.onNext(it) }
         RxCompoundButton.checkedChanges(checkbox_10).skipInitialValue().subscribe { MOApp.showAt10.onNext(it) }
+        RxCompoundButton.checkedChanges(checkbox_horizontal).skipInitialValue().subscribe { MOApp.showHorizontal.onNext(it) }
     }
 
     override fun onStart() {
@@ -33,7 +34,8 @@ class MainActivity : AppCompatActivity() {
         binding.addAll(
             MOApp.serviceRunning.observeOn(AndroidSchedulers.mainThread()).subscribe(this::refresh),
             MOApp.showAt16.observeOn(AndroidSchedulers.mainThread()).subscribe { checkbox_16.isChecked = it },
-            MOApp.showAt10.observeOn(AndroidSchedulers.mainThread()).subscribe { checkbox_10.isChecked = it }
+            MOApp.showAt10.observeOn(AndroidSchedulers.mainThread()).subscribe { checkbox_10.isChecked = it },
+            MOApp.showHorizontal.observeOn(AndroidSchedulers.mainThread()).subscribe { checkbox_horizontal.isChecked = it }
         )
     }
 

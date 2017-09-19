@@ -24,10 +24,21 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="8dp"
         android:text="Blue at 10dp"
+        app:layout_constraintBottom_toTopOf="@+id/checkbox_horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/checkbox_16"/>
+
+    <CheckBox
+        android:id="@+id/checkbox_horizontal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:text="Blue horizontal 16dp"
         app:layout_constraintBottom_toTopOf="@+id/main_button"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/checkbox_16"
+        app:layout_constraintTop_toBottomOf="@id/checkbox_10"
         app:layout_constraintVertical_chainStyle="spread_inside" />
 
     <Button
@@ -36,7 +47,7 @@
         android:layout_height="wrap_content"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/checkbox_10"
+        app:layout_constraintTop_toBottomOf="@id/checkbox_horizontal"
         app:layout_constraintBottom_toBottomOf="parent"/>
 
 </android.support.constraint.ConstraintLayout>
