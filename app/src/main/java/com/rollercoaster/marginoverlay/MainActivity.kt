@@ -7,13 +7,9 @@ import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.CompositeDisposable
 import kotlinx.android.synthetic.main.activity_main.*
 import org.jetbrains.anko.sdk25.coroutines.onClick
-import org.jetbrains.anko.startService
-import android.provider.Settings.ACTION_MANAGE_OVERLAY_PERMISSION
-import android.app.Activity
 import android.net.Uri
-import android.provider.Settings.canDrawOverlays
-import android.os.Build
 import android.provider.Settings
+import com.jakewharton.rxbinding2.widget.RxCompoundButton
 
 
 class MainActivity : AppCompatActivity() {
@@ -27,13 +23,23 @@ class MainActivity : AppCompatActivity() {
         if (!Settings.canDrawOverlays(this)) {
             startActivityForResult(Intent(Settings.ACTION_MANAGE_OVERLAY_PERMISSION, Uri.parse("package:" + packageName)), 1)
         }
+
+        RxCompoundButton.checkedChanges(checkbox_16).skipInitialValue().subscribe { MOApp.showAt16.onNext(it) }
+        RxCompoundButton.checkedChanges(checkbox_10).skipInitialValue().subscribe { MOApp.showAt10.onNext(it) }
     }
 
     override fun onStart() {
         super.onStart()
-        binding.add(
-            MOApp.serviceRunning.observeOn(AndroidSchedulers.mainThread()).subscribe(this::refresh)
+        binding.addAll(
+            MOApp.serviceRunning.observeOn(AndroidSchedulers.mainThread()).subscribe(this::refresh),
+            MOApp.showAt16.observeOn(AndroidSchedulers.mainThread()).subscribe { checkbox_16.isChecked = it },
+            MOApp.showAt10.observeOn(AndroidSchedulers.mainThread()).subscribe { checkbox_10.isChecked = it }
         )
+    }
+
+    override fun onStop() {
+        binding.clear()
+        super.onStop()
     }
 
 

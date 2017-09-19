@@ -6,19 +6,37 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <View
-        android:id="@+id/start_margin"
+        android:id="@+id/start_margin_16"
         android:layout_width="16dp"
         android:layout_height="0dp"
-        android:background="@color/overlay"
+        android:background="@color/overlay_16"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"/>
 
     <View
-        android:id="@+id/end_margin"
+        android:id="@+id/start_margin_10"
+        android:layout_width="10dp"
+        android:layout_height="0dp"
+        android:background="@color/overlay_10"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"/>
+
+    <View
+        android:id="@+id/end_margin_16"
         android:layout_width="16dp"
         android:layout_height="0dp"
-        android:background="@color/overlay"
+        android:background="@color/overlay_16"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <View
+        android:id="@+id/end_margin_10"
+        android:layout_width="10dp"
+        android:layout_height="0dp"
+        android:background="@color/overlay_10"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
